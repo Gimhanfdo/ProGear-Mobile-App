@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 class Product{
   late int productID;
   late String productName;
