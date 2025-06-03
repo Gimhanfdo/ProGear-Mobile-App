@@ -80,6 +80,7 @@ flutter:
     - family: Nunito
       fonts:
         - asset: assets/fonts/nunito.ttf
+  
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
