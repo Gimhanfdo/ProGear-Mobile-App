@@ -78,6 +78,9 @@ flutter:
       fonts:
         - asset: assets/fonts/inter.ttf
 
+    - family: Nunito
+      fonts:
+        - asset: assets/fonts/nunito.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
