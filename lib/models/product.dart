@@ -18,7 +18,7 @@ Product({
   required this.productImage,
   required this.description,
   required this.discountPercentage,
-  required this. quantityAvailable,
+  required this.quantityAvailable,
 });
 }
 
