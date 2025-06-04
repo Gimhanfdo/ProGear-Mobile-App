@@ -1,18 +1,16 @@
 class Product{
-  late int productID;
-  late String productName;
-  late String productBand;
-  late String category;
-  late double price;
-  late String productImage;
-  late String description;
-  late double discountPercentage;
-  late int quantityAvailable;
+  String productName;
+  String productBrand;
+  String category;
+  double price;
+  String productImage;
+  String description;
+  double discountPercentage;
+  int quantityAvailable;
 
 Product({
-  required this.productID,
   required this.productName,
-  required this.productBand,
+  required this.productBrand,
   required this.category,
   required this.price,
   required this.productImage,
