@@ -8,11 +8,13 @@ class BottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    
     return NavigationBar(
       onDestinationSelected: onTap,
       selectedIndex: currentIndex,
-      backgroundColor: Colors.grey.shade100,
-      indicatorColor: Colors.teal.shade200,
+      backgroundColor: theme.colorScheme.surface,
+      indicatorColor: theme.colorScheme.primary.withOpacity(0.2),
       indicatorShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       destinations: [
         NavigationDestination(
@@ -31,9 +33,9 @@ class BottomNavBar extends StatelessWidget {
           label: 'My Cart',
         ),
         NavigationDestination(
-          icon: Icon(Icons.settings_outlined),
-          selectedIcon: Icon(Icons.settings),
-          label: 'Settings',
+          icon: Icon(Icons.person_outlined),
+          selectedIcon: Icon(Icons.person),
+          label: 'Profile',
         ),
       ],
     );
