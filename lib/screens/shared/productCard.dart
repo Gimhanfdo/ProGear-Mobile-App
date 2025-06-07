@@ -8,11 +8,11 @@ class ProductCard extends StatelessWidget {
   const ProductCard({super.key, required this.product});
 
   bool hasDiscount(Product product) {
-    return product.discountPercentage > 0;
+    return product.discountPercentage != null;
   }
 
   double calculateDiscountedPrice(Product product) {
-    return product.price * (1 - product.discountPercentage / 100);
+    return product.price * (1 - product.discountPercentage! / 100);
   }
 
   @override
