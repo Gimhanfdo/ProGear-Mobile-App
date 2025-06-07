@@ -131,7 +131,7 @@ class Allproducts {
       category: 'Bat',
       price: 110000,
       productImage:
-          'https://cdn-ilcahnb.nitrocdn.com/SvghwyRsReNWRvdQxVqdyuhRfQTVzAwb/assets/images/optimized/rev-f4f7603/bestcricketstore.com/wp-content/uploads/2023/07/img_8176-768x817.jpeg',
+          'https://m.media-amazon.com/images/I/61S+unjuJ6L._SS1000_.jpg',
       description: 'High-quality bat for all players.',
       discountPercentage: null,
       quantityAvailable: 31,
