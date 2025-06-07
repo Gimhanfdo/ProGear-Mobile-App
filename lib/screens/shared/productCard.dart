@@ -17,32 +17,48 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final bool isDiscounted = hasDiscount(product);
     final double? discountedPrice =
         isDiscounted ? calculateDiscountedPrice(product) : null;
 
     return Container(
+      width: MediaQuery.of(context).size.width / 2,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        color: Colors.grey[50],
+        borderRadius: BorderRadius.circular(15),
+        color: theme.colorScheme.surface,
       ),
       padding: const EdgeInsets.all(8.0),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           //Product Image
           SizedBox(
-            height: 130,
-            width: 130,
-            child: CachedNetworkImage( //For image optimization
+            height: 150,
+            width: 150,
+            child: CachedNetworkImage(
+              //For image optimization
               imageUrl: product.productImage,
               fit: BoxFit.cover,
-              placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
-              errorWidget: (context, url, error) => const Icon(Icons.broken_image),
+              placeholder:
+                  (context, url) =>
+                      const Center(child: CircularProgressIndicator()),
+              errorWidget:
+                  (context, url, error) => const Icon(Icons.broken_image),
             ),
           ),
 
+          const SizedBox(height: 10),
           //Product Name
-          Text(product.productName, style: TextStyle()),
+          Text(
+            product.productName,
+            maxLines: 1, 
+            overflow: TextOverflow.ellipsis,
+            style: theme.textTheme.titleMedium?.copyWith(
+              fontWeight: FontWeight.bold,
+              color: theme.colorScheme.onSurface,
+            ),
+          ),
 
           //Product Price(s) will be displayed accordingly based on their discount
           if (isDiscounted) ...[
@@ -50,7 +66,7 @@ class ProductCard extends StatelessWidget {
             Text(
               'Rs. ${product.price.toStringAsFixed(2)}',
               style: TextStyle(
-                color: Colors.grey[600],
+                color: theme.colorScheme.onSurface.withAlpha(153), // 60% opacity
                 decoration: TextDecoration.lineThrough,
               ),
             ),
@@ -62,7 +78,10 @@ class ProductCard extends StatelessWidget {
           ] else ...[
             Text(
               'Rs. ${product.price.toStringAsFixed(2)}',
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: theme.colorScheme.onSurface,
+              ),
             ),
           ],
         ],
