@@ -5,7 +5,7 @@ class Product{
   double price;
   String productImage;
   String description;
-  double discountPercentage;
+  double? discountPercentage;
   int quantityAvailable;
 
 Product({
@@ -15,7 +15,7 @@ Product({
   required this.price,
   required this.productImage,
   required this.description,
-  required this.discountPercentage,
+  this.discountPercentage,
   required this.quantityAvailable,
 });
 }
