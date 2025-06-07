@@ -1,4 +1,5 @@
 class Product{
+  int productID;
   String productName;
   String productBrand;
   String category;
@@ -9,6 +10,7 @@ class Product{
   int quantityAvailable;
 
 Product({
+  required this.productID,
   required this.productName,
   required this.productBrand,
   required this.category,
