@@ -3,6 +3,7 @@ import 'package:progear_app/models/product.dart';
 class Allproducts {
   static List<Product> discountedProducts = [
     Product(
+      productID: 2,
       productName: 'Kookaburra Ultimate Bat',
       productBrand: 'Kookaburra',
       category: 'Bat',
@@ -11,10 +12,11 @@ class Allproducts {
           'https://commercebuild-175c7.kxcdn.com/cdn-d03d5231-5b2e278c.commercebuild.com/cf738e9579802e6b988bb225ca6bc00c/contents/2A25190C/thumbnail/middle_2A25190C-Ghost-Pro-Shadow.jpg?quality=65',
       description: 'Recommended for professional cricketers',
       discountPercentage: 10,
-      quantityAvailable: 10,
+      quantityAvailable: 0,
     ),
 
     Product(
+      productID: 9,
       productName: 'New Balance TC 1260',
       productBrand: 'New Balance',
       category: 'Bat',
@@ -26,6 +28,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 20,
       productName: 'SG Bouncer Leather Ball (Red)',
       productBrand: 'SG',
       category: 'Ball',
@@ -39,6 +42,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 26,
       productName: 'Shrey Masterclass Air 2.0 Steel Helmet',
       productBrand: 'Shrey',
       category: 'Helmet',
@@ -54,6 +58,7 @@ class Allproducts {
 
   static List<Product> cricketBats = [
     Product(
+      productID: 1,
       productName: 'Kookaburra Pro Cricket Bat',
       productBrand: 'Kookaburra',
       category: 'Bat',
@@ -66,6 +71,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 2,
       productName: 'Kookaburra Ultimate Bat',
       productBrand: 'Kookaburra',
       category: 'Bat',
@@ -78,6 +84,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 3,
       productName: 'SG Sunny Tonny English Willow',
       productBrand: 'SG',
       category: 'Bat',
@@ -90,6 +97,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 4,
       productName: 'MRF Genius Chase Master',
       productBrand: 'MRF',
       category: 'Bat',
@@ -102,6 +110,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 5,
       productName: 'Kookaburra Kahuna Pro',
       productBrand: 'Kookaburra',
       category: 'Bat',
@@ -114,6 +123,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 6,
       productName: 'Gray-Nicolls Powerbow',
       productBrand: 'Gray-Nicolls',
       category: 'Bat',
@@ -126,6 +136,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 7,
       productName: 'SS Ton Gladiator',
       productBrand: 'SS',
       category: 'Bat',
@@ -138,6 +149,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 8,
       productName: 'DSC Krunch 5.0',
       productBrand: 'DSC',
       category: 'Bat',
@@ -150,6 +162,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 9,
       productName: 'New Balance TC 1260',
       productBrand: 'New Balance',
       category: 'Bat',
@@ -161,6 +174,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 10,
       productName: "Adidas Pellara XT",
       productBrand: "Adidas",
       category: "Bat",
@@ -173,6 +187,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 11,
       productName: "Spartan MSD 7",
       productBrand: "Spartan",
       category: "Bat",
@@ -185,6 +200,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 12,
       productName: "GM Diamond DXM",
       productBrand: "GM",
       category: "Bat",
@@ -199,6 +215,7 @@ class Allproducts {
 
   static List<Product> cricketBalls = [
     Product(
+      productID: 13,
       productName: "CA White Match Ball",
       productBrand: "CA",
       category: "Ball",
@@ -211,6 +228,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 14,
       productName: "Kookaburra Turf Red",
       productBrand: "Kookaburra",
       category: "Ball",
@@ -224,6 +242,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 15,
       productName: "SG Test (Red/White)",
       productBrand: "SG",
       category: "Ball",
@@ -237,6 +256,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 16,
       productName: "Dukes Club Match (Red/Pink)",
       productBrand: "Dukes",
       category: "Ball",
@@ -250,6 +270,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 17,
       productName: "SF County Cricket Ball",
       productBrand: "SF",
       category: "Ball",
@@ -263,6 +284,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 18,
       productName: "Cosco Cricket Tennis Ball (Light/Heavy Weight)",
       productBrand: "Cosco",
       category: "Ball",
@@ -275,6 +297,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 19,
       productName: "Vicky Leather Cork Cricket Ball (White)",
       productBrand: "Vicky",
       category: "Ball",
@@ -288,6 +311,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 20,
       productName: "SG Bouncer Leather Ball (Red)",
       productBrand: "SG",
       category: "Ball",
@@ -301,6 +325,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 21,
       productName: "Readers County Crown Cricket Ball (Red/White/Pink)",
       productBrand: "Readers",
       category: "Ball",
@@ -314,6 +339,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 22,
       productName: "Kookaburra Super Test Cricket Ball (Red)",
       productBrand: "Kookaburra",
       category: "Ball",
@@ -327,6 +353,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 23,
       productName: "Dukes Allrounder 2 Piece Cricket Ball (Red)",
       productBrand: "Dukes",
       category: "Ball",
@@ -340,6 +367,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 24,
       productName: "FORTRESS Royal Crown Cricket Ball",
       productBrand: "FORTRESS",
       category: "Ball",
@@ -355,6 +383,7 @@ class Allproducts {
 
   static List<Product> cricketHelmets = [
     Product(
+      productID: 25,
       productName: "Masuri T-Line Titanium Helmet",
       productBrand: "Masuri",
       category: "Helmet",
@@ -368,6 +397,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 26,
       productName: "Shrey Masterclass Air 2.0 Steel Helmet",
       productBrand: "Shrey",
       category: "Helmet",
@@ -381,6 +411,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 27,
       productName: "SG AeroShield 2.0 Helmet",
       productBrand: "SG",
       category: "Helmet",
@@ -394,6 +425,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 28,
       productName: "Gray-Nicolls Ultimate 360 Helmet",
       productBrand: "Gray-Nicolls",
       category: "Helmet",
@@ -407,6 +439,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 29,
       productName: "Kookaburra Pro 600 Helmet",
       productBrand: "Kookaburra",
       category: "Helmet",
@@ -420,6 +453,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 30,
       productName: "DSC Guard Cricket Helmet",
       productBrand: "DSC",
       category: "Helmet",
@@ -433,6 +467,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 31,
       productName: "SS Gladiator Helmet",
       productBrand: "SS",
       category: "Helmet",
@@ -446,6 +481,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 32,
       productName: "Masuri C-Line Plus Steel Helmet",
       productBrand: "Masuri",
       category: "Helmet",
@@ -459,6 +495,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 33,
       productName: "Shrey Performance Steel Helmet",
       productBrand: "Shrey",
       category: "Helmet",
@@ -472,6 +509,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 34,
       productName: "Gunn & Moore (GM) Purist Geo II Helmet",
       productBrand: "Gunn & Moore",
       category: "Helmet",
@@ -485,6 +523,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 35,
       productName: "Albion Test Helmet",
       productBrand: "Albion",
       category: "Helmet",
@@ -498,6 +537,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 36,
       productName: "Moonwalkr Mind 2.0 Helmet",
       productBrand: "Moonwalkr",
       category: "Helmet",
@@ -513,6 +553,7 @@ class Allproducts {
 
   static List<Product> otherEquipment = [
     Product(
+      productID: 37,
       productName: "SG Super Test Wicket Keeping Gloves",
       productBrand: "SG",
       category: "Other",
@@ -526,6 +567,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 38,
       productName: "GM Mythos 606 Batting Gloves",
       productBrand: "Gunn & Moore",
       category: "Other",
@@ -539,6 +581,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 39,
       productName: "SS County Batting Gloves",
       productBrand: "SS",
       category: "Other",
@@ -552,6 +595,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 40,
       productName: "Kookaburra Kahuna Lite Batting Gloves",
       productBrand: "Kookaburra",
       category: "Other",
@@ -565,6 +609,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 41,
       productName: "Adidas 22 YDS Boost Shoes",
       productBrand: "Adidas",
       category: "Other",
@@ -578,6 +623,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 42,
       productName: "New Balance CK4040 L4 Spikes",
       productBrand: "New Balance",
       category: "Other",
@@ -591,6 +637,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 43,
       productName: "Asics Gel-Peake 8 Cricket Shoes",
       productBrand: "Asics",
       category: "Other",
@@ -604,6 +651,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 44,
       productName: "Puma 22 FH Rubber Cricket Shoes",
       productBrand: "Puma",
       category: "Other",
@@ -617,6 +665,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 45,
       productName: "Gunn & Moore Original Duffle Bag",
       productBrand: "Gunn & Moore",
       category: "Other",
@@ -630,6 +679,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 46,
       productName: "SG Campus Wheelie Bag",
       productBrand: "SG",
       category: "Other",
@@ -643,6 +693,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 47,
       productName: "Kookaburra Pro Players Wheelie Bag",
       productBrand: "Kookaburra",
       category: "Other",
@@ -656,6 +707,7 @@ class Allproducts {
     ),
 
     Product(
+      productID: 48,
       productName: "DSC Big Bash Kit Bag",
       productBrand: "DSC",
       category: "Other",
