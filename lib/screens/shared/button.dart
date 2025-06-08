@@ -4,12 +4,14 @@ class CustomButton extends StatelessWidget {
   final Color buttonColor;
   final String buttonText;
   final String? iconPath;
+  final VoidCallback? onTap;
 
   const CustomButton({
     super.key,
     required this.buttonText,
     required this.buttonColor,
     this.iconPath,
+    this.onTap,
   });
 
   @override
@@ -25,9 +27,9 @@ class CustomButton extends StatelessWidget {
     }
 
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 100),
+        padding: const EdgeInsets.symmetric(horizontal: 80),
         child: Container(
           padding: const EdgeInsets.fromLTRB(25, 10, 25, 10),
           decoration: BoxDecoration(
