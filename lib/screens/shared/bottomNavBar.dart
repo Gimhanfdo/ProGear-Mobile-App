@@ -13,7 +13,7 @@ class BottomNavBar extends StatelessWidget {
     return NavigationBar(
       onDestinationSelected: onTap,
       selectedIndex: currentIndex,
-      backgroundColor: theme.colorScheme.surface,
+      backgroundColor: theme.colorScheme.surfaceContainer,
       indicatorColor: theme.colorScheme.primary.withOpacity(0.2),
       indicatorShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       destinations: [
