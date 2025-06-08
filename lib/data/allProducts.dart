@@ -1,6 +1,22 @@
 import 'package:progear_app/models/product.dart';
 
 class Allproducts {
+
+  static List<Product> getProductsByCategory(String category) {
+    switch (category) {
+      case 'Bat':
+        return cricketBats;
+      case 'Ball':
+        return cricketBalls;
+      case 'Helmet':
+        return cricketHelmets;
+      case 'Other':
+        return otherEquipment;
+      default:
+        return [];
+    }
+  }
+
   static List<Product> discountedProducts = [
     Product(
       productID: 2,
@@ -65,7 +81,8 @@ class Allproducts {
       price: 112500,
       productImage:
           'https://images-na.ssl-images-amazon.com/images/I/51RRZPv7DYL._SS400_.jpg',
-      description: 'The Kookaburra Pro Cricket Bat (2025 Edition) is designed for professional cricketers who demand peak performance. Experience exceptional power, precision, and balance with this top-tier bat.',
+      description:
+          'The Kookaburra Pro Cricket Bat (2025 Edition) is designed for professional cricketers who demand peak performance. Experience exceptional power, precision, and balance with this top-tier bat.',
       discountPercentage: null,
       quantityAvailable: 20,
     ),
@@ -78,7 +95,8 @@ class Allproducts {
       price: 130000,
       productImage:
           'https://commercebuild-175c7.kxcdn.com/cdn-d03d5231-5b2e278c.commercebuild.com/cf738e9579802e6b988bb225ca6bc00c/contents/2A25190C/thumbnail/middle_2A25190C-Ghost-Pro-Shadow.jpg?quality=65',
-      description: 'Unleash your full potential with the Kookaburra Ultimate Bat, a pinnacle of cricketing excellence. Specifically recommended for professional cricketers, this bat is engineered for supreme power and unparalleled stroke play.',
+      description:
+          'Unleash your full potential with the Kookaburra Ultimate Bat, a pinnacle of cricketing excellence. Specifically recommended for professional cricketers, this bat is engineered for supreme power and unparalleled stroke play.',
       discountPercentage: 10,
       quantityAvailable: 0,
     ),
@@ -91,7 +109,8 @@ class Allproducts {
       price: 112500,
       productImage:
           'https://shop.teamsg.in/cdn/shop/files/7_da98333b-4c2c-4a8f-ba8e-2868886f4a90.png?v=1745323268&width=1946',
-      description: "This high-quality bat is meticulously crafted for players of all levels, from aspiring amateurs to seasoned professionals. Made from premium English Willow, it offers excellent pick-up, a large sweet spot, and superb rebound, allowing you to play a wide range of shots with confidence. Whether you're driving through the covers or hitting towering sixes, the SG Sunny Tonny is designed to enhance your performance.",
+      description:
+          "This high-quality bat is meticulously crafted for players of all levels, from aspiring amateurs to seasoned professionals. Made from premium English Willow, it offers excellent pick-up, a large sweet spot, and superb rebound, allowing you to play a wide range of shots with confidence. Whether you're driving through the covers or hitting towering sixes, the SG Sunny Tonny is designed to enhance your performance.",
       discountPercentage: null,
       quantityAvailable: 8,
     ),
@@ -104,7 +123,8 @@ class Allproducts {
       price: 130000,
       productImage:
           'https://isportscricket.com/wp-content/uploads/2023/09/MRF-GENIUS-CHASE-MASTER-2.png',
-      description: "This high-quality bat is designed for players who aspire to greatness, offering a fantastic blend of power and maneuverability suitable for all skill levels. With its superior balance and robust construction, the MRF Genius Chase Master enables dynamic stroke play and effortless timing. Trusted by top cricketers, this bat is your key to unlocking peak performance on the field.",
+      description:
+          "This high-quality bat is designed for players who aspire to greatness, offering a fantastic blend of power and maneuverability suitable for all skill levels. With its superior balance and robust construction, the MRF Genius Chase Master enables dynamic stroke play and effortless timing. Trusted by top cricketers, this bat is your key to unlocking peak performance on the field.",
       discountPercentage: null,
       quantityAvailable: 35,
     ),
@@ -117,7 +137,8 @@ class Allproducts {
       price: 125000,
       productImage:
           'https://cdn-d03d5231-5b2e278c.commercebuild.com/cf738e9579802e6b988bb225ca6bc00c/contents/2A25130C/2A25130C-Kahuna-Pro-Front.jpg',
-      description: "A high-quality bat engineered for players who demand excellence. While suitable for all players, its 'Pro' designation hints at its superior craftsmanship and performance capabilities. The Kahuna Pro offers a powerful hitting zone and excellent pick-up, allowing for aggressive and precise stroke play. This bat is a testament to Kookaburra's commitment to quality and innovation.",
+      description:
+          "A high-quality bat engineered for players who demand excellence. While suitable for all players, its 'Pro' designation hints at its superior craftsmanship and performance capabilities. The Kahuna Pro offers a powerful hitting zone and excellent pick-up, allowing for aggressive and precise stroke play. This bat is a testament to Kookaburra's commitment to quality and innovation.",
       discountPercentage: null,
       quantityAvailable: 1,
     ),
@@ -130,7 +151,8 @@ class Allproducts {
       price: 120000,
       productImage:
           'https://www.maceysports.co.uk/cdn/shop/products/powerbow_thunder.jpg?v=1564682669',
-      description: "This high-quality bat is designed to maximize your hitting potential, making it an excellent choice for players across all skill levels. The unique Powerbow design enhances the sweet spot and provides an incredible feel, allowing for powerful and effortless shot-making. Experience the renowned craftsmanship and performance that Gray-Nicolls is known for.",
+      description:
+          "This high-quality bat is designed to maximize your hitting potential, making it an excellent choice for players across all skill levels. The unique Powerbow design enhances the sweet spot and provides an incredible feel, allowing for powerful and effortless shot-making. Experience the renowned craftsmanship and performance that Gray-Nicolls is known for.",
       discountPercentage: null,
       quantityAvailable: 28,
     ),
@@ -143,7 +165,8 @@ class Allproducts {
       price: 110000,
       productImage:
           'https://m.media-amazon.com/images/I/61S+unjuJ6L._SS1000_.jpg',
-      description: "This high-quality bat is built to perform, offering exceptional power and a comfortable feel for players of all abilities. The SS Ton Gladiator is renowned for its excellent balance and large sweet spot, ensuring that every shot you play is impactful. Crafted with precision, this bat will be your trusted companion in every innings.",
+      description:
+          "This high-quality bat is built to perform, offering exceptional power and a comfortable feel for players of all abilities. The SS Ton Gladiator is renowned for its excellent balance and large sweet spot, ensuring that every shot you play is impactful. Crafted with precision, this bat will be your trusted companion in every innings.",
       discountPercentage: null,
       quantityAvailable: 31,
     ),
@@ -156,7 +179,8 @@ class Allproducts {
       price: 98000,
       productImage:
           'https://5.imimg.com/data5/SELLER/Default/2025/1/484063839/KW/RD/SM/181026464/dsc-krunch-5-0-english-willow-cricket-bat.jpg',
-      description: "Experience the perfect blend of power and affordability with the DSC Krunch 5.0 English Willow cricket bat. This high-quality bat is an excellent option for all players, offering a fantastic pick-up and a wide hitting area that allows for dynamic stroke play. The DSC Krunch 5.0 is designed to deliver consistent performance, helping you to score runs freely and confidently.",
+      description:
+          "Experience the perfect blend of power and affordability with the DSC Krunch 5.0 English Willow cricket bat. This high-quality bat is an excellent option for all players, offering a fantastic pick-up and a wide hitting area that allows for dynamic stroke play. The DSC Krunch 5.0 is designed to deliver consistent performance, helping you to score runs freely and confidently.",
       discountPercentage: null,
       quantityAvailable: 14,
     ),
@@ -168,7 +192,8 @@ class Allproducts {
       category: 'Bat',
       price: 132000,
       productImage: 'https://m.media-amazon.com/images/I/41pwCXcyd3L.jpg',
-      description: "Elevate your game with the New Balance TC 1260 cricket bat, a high-quality option designed for discerning players. This bat offers superb balance and a powerful profile, making it suitable for all levels of cricketers seeking to enhance their performance. The TC 1260 embodies New Balance's commitment to precision and player comfort.",
+      description:
+          "Elevate your game with the New Balance TC 1260 cricket bat, a high-quality option designed for discerning players. This bat offers superb balance and a powerful profile, making it suitable for all levels of cricketers seeking to enhance their performance. The TC 1260 embodies New Balance's commitment to precision and player comfort.",
       discountPercentage: 5,
       quantityAvailable: 20,
     ),
@@ -181,7 +206,8 @@ class Allproducts {
       price: 119000,
       productImage:
           "https://sportsjam.in/media/catalog/product/cache/f6d88dd4f51ed5a5b4384f0ded062b0d/a/d/adab7088l.jpg",
-      description: "Step up to the crease with the Adidas Pellara XT cricket bat, a high-quality option built for all players who demand performance. This bat offers a strong profile and excellent pick-up, designed to help you generate maximum power and control with every shot. The Adidas Pellara XT combines innovative design with reliable construction, ensuring a consistent and satisfying batting experience.",
+      description:
+          "Step up to the crease with the Adidas Pellara XT cricket bat, a high-quality option built for all players who demand performance. This bat offers a strong profile and excellent pick-up, designed to help you generate maximum power and control with every shot. The Adidas Pellara XT combines innovative design with reliable construction, ensuring a consistent and satisfying batting experience.",
       discountPercentage: null,
       quantityAvailable: 17,
     ),
@@ -194,7 +220,8 @@ class Allproducts {
       price: 108000,
       productImage:
           "https://www.ubuy.com.lk/productimg/?image=aHR0cHM6Ly9pbWFnZXMtbmEuc3NsLWltYWdlcy1hbWF6b24uY29tL2ltYWdlcy9JLzgxJTJCVWMwVG1XUkwuX1NTNDAwXy5qcGc.jpg",
-      description: "Unleash the spirit of a legend with the Spartan MSD 7 cricket bat. This high-quality bat, inspired by the iconic M.S. Dhoni, is crafted to cater to players of all skill levels. It offers a superb feel, excellent balance, and a responsive hitting area, allowing you to play your shots with confidence and flair. The Spartan MSD 7 is a testament to precision engineering and performance.",
+      description:
+          "Unleash the spirit of a legend with the Spartan MSD 7 cricket bat. This high-quality bat, inspired by the iconic M.S. Dhoni, is crafted to cater to players of all skill levels. It offers a superb feel, excellent balance, and a responsive hitting area, allowing you to play your shots with confidence and flair. The Spartan MSD 7 is a testament to precision engineering and performance.",
       discountPercentage: null,
       quantityAvailable: 41,
     ),
@@ -207,7 +234,8 @@ class Allproducts {
       price: 105000,
       productImage:
           "https://www.ubuy.com.lk/productimg/?image=aHR0cHM6Ly9tLm1lZGlhLWFtYXpvbi5jb20vaW1hZ2VzL0kvMzFDRmhjNHIwb0wuX1NTNDAwXy5qcGc.jpg",
-      description: "Shine on the pitch with the GM Diamond DXM cricket bat. This high-quality bat is designed for players of all standards, offering a harmonious blend of power, feel, and control. The GM Diamond DXM features a well-balanced profile and a substantial sweet spot, allowing for effortless stroke play and boundary-hitting ability. Experience the renowned craftsmanship of GM, a brand trusted by cricketers worldwide.",
+      description:
+          "Shine on the pitch with the GM Diamond DXM cricket bat. This high-quality bat is designed for players of all standards, offering a harmonious blend of power, feel, and control. The GM Diamond DXM features a well-balanced profile and a substantial sweet spot, allowing for effortless stroke play and boundary-hitting ability. Experience the renowned craftsmanship of GM, a brand trusted by cricketers worldwide.",
       discountPercentage: null,
       quantityAvailable: 40,
     ),
