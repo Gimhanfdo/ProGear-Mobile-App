@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:progear_app/models/user.dart';
 import 'package:progear_app/screens/home.dart';
+import 'package:progear_app/screens/navigationWrapper.dart';
 import 'package:progear_app/screens/register.dart';
 import 'package:progear_app/screens/shared/button.dart';
 import 'package:progear_app/screens/shared/textField.dart';
@@ -30,9 +31,10 @@ class LoginScreen extends StatelessWidget {
                 TextButton(
                   onPressed: () {
                     // Navigate to Home screen
+                    Navigator.pop(context);
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => Home()),
+                      MaterialPageRoute(builder: (context) => NavigationWrapper()),
                     );
                   },
                   child: Text('OK'),
@@ -46,6 +48,7 @@ class LoginScreen extends StatelessWidget {
         barrierDismissible: false,
         builder:
             (context) => AlertDialog(
+              title: Text("PROGEAR"),
               content: Text("Incorrect Username or Password"),
               actions: [
                 TextButton(
