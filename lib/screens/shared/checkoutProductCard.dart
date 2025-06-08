@@ -25,25 +25,30 @@ class CheckoutProductCard extends StatelessWidget {
 
     final double totalPrice = unitPrice * quantity;
 
-    return ListTile(
-      leading: CircleAvatar(
-        radius: 30,
-        backgroundImage: NetworkImage(product.productImage),
-      ),
-      title: Text(
-        product.productName,
-        style: TextStyle(fontWeight: FontWeight.bold),
-      ),
-      subtitle: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'LKR ${totalPrice.toStringAsFixed(2)}',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          Text('Unit Price: LKR ${unitPrice.toStringAsFixed(2)}'),
-          Text('Quantity: $quantity'),
-        ],
+    return Card(
+      elevation: 3,
+      margin: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      child: ListTile(
+        leading: CircleAvatar(
+          radius: 30,
+          backgroundImage: NetworkImage(product.productImage),
+        ),
+        title: Text(
+          product.productName,
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'LKR ${totalPrice.toStringAsFixed(2)}',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            Text('Unit Price: LKR ${unitPrice.toStringAsFixed(2)}'),
+            Text('Quantity: $quantity'),
+          ],
+        ),
       ),
     );
   }
