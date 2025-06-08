@@ -108,7 +108,7 @@ class _ProductsPageState extends State<ProductsPage> {
               MaterialPageRoute(
                 builder:
                     (context) =>
-                        ProductDetailsPage(productObject: productList[index]),
+                        ProductDetailsPage(product: productList[index]),
               ),
             ); //Material Page Route
           },
