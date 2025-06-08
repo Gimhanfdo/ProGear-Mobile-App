@@ -19,11 +19,12 @@ class CustomTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 80),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(labelText),
 
           const SizedBox(height: 5),
-          
+
           TextField(
             controller: textController,
             obscureText: obscureText,
