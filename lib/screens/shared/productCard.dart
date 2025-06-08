@@ -79,7 +79,6 @@ class ProductCard extends StatelessWidget {
             Text(
               'Rs. ${product.price.toStringAsFixed(2)}',
               style: TextStyle(
-                fontWeight: FontWeight.bold,
                 color: theme.colorScheme.onSurfaceVariant,
               ),
             ),
