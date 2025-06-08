@@ -5,6 +5,7 @@ import 'package:progear_app/data/allProducts.dart';
 import 'package:progear_app/screens/productDetails.dart';
 import 'package:progear_app/screens/products.dart';
 import 'package:progear_app/screens/profile.dart';
+import 'package:progear_app/screens/shared/button.dart';
 import 'package:progear_app/screens/shared/customHomeAppBar.dart';
 import 'package:progear_app/screens/shared/productCard.dart';
 
@@ -16,14 +17,12 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomHomeAppBar(),
-      body: 
-      Padding(
-        padding: const EdgeInsets.all(8.0),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -42,7 +41,50 @@ class _HomeState extends State<Home> {
                       (context, url, error) => const Icon(Icons.broken_image),
                 ),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 20),
+
+              SearchAnchor.bar(
+                barHintText: 'What are you looking for?',
+                suggestionsBuilder: (context, controller) {
+                  return const []; 
+                },
+              ),
+
+              const SizedBox(height: 20),
+
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.teal.shade800,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                padding: EdgeInsets.all(25),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Greatness is Contagious.",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        ElevatedButton(
+                          onPressed: () {},
+                          child: Text("View Products"),
+                        ),
+                      ],
+                    ),
+                    Image.asset('assets/images/cricket.png', height: 100),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 20),
               Row(
                 children: [
                   Text(
@@ -58,11 +100,7 @@ class _HomeState extends State<Home> {
                 ],
               ),
               const SizedBox(height: 12),
-              SizedBox(
-                height:
-                    MediaQuery.of(context).size.height * 0.5, 
-                child: _displayDiscountedProducts(),
-              ),
+              _displayDiscountedProducts(),
             ],
           ),
         ),
@@ -77,6 +115,8 @@ class _HomeState extends State<Home> {
         screenOrientation == Orientation.landscape ? (100 / 110) : (100 / 140);
 
     return GridView.builder(
+      physics: NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: crossAxisCount,
         childAspectRatio: childAspectRatio,
