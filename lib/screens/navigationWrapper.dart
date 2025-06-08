@@ -19,7 +19,7 @@ class _NavigationWrapperState extends State<NavigationWrapper> {
     const Home(),
     const ProductsPage(),
     const CartPage(),
-    const ProfilePage(),
+    ProfilePage(),
   ];
 
   @override
