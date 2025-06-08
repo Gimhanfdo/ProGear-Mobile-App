@@ -68,6 +68,7 @@ flutter:
     - assets/images/icons8-mastercard-48.png
     - assets/images/icons8-visa-48.png
     - assets/images/user.png
+    - assets/images/cricket.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
