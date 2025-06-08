@@ -9,6 +9,7 @@ class CustomHomeAppBar extends StatelessWidget implements PreferredSizeWidget {
 
     return AppBar(
       backgroundColor: theme.colorScheme.surface,
+      elevation: 1,
       title: Text(
         'PROGEAR',
         style: TextStyle(
