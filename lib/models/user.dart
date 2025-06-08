@@ -1,5 +1,8 @@
 // ignore_for_file: prefer_final_fields
 
+import 'package:flutter/material.dart';
+import 'package:progear_app/screens/login.dart';
+
 class User {
   final int _userID;
   String _name;
@@ -38,4 +41,36 @@ class LoggedInUser extends User {
         email: 'john.smith@example.com',
         password: 'John_Smith@2000',
       );
+
+  static void logOut(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder:
+          (context) => AlertDialog(
+            title: Text('PROGEAR'),
+            content: Text("Are you sure you want to log out?"),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  // Navigate to Login screen
+                  Navigator.pop(context);
+                },
+                child: Text('Cancel'),
+              ),
+              TextButton(
+                onPressed: () {
+                  // Navigate to Login screen
+                  Navigator.pop(context);
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                  );
+                },
+                child: Text('Log out'),
+              ),
+            ],
+          ),
+    );
+  }
 }
