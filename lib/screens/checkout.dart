@@ -40,7 +40,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
     }
 
     //Credit card number validation
-    if (!RegExp(r'^\d{10}$').hasMatch(creditCardNumber)) {
+    if (!RegExp(r'^\d{16}$').hasMatch(creditCardNumber)) {
       showErrorAlertDialog(
         context,
         'Credit card number must contain exactly 16 digits.',
@@ -59,7 +59,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
   void displayOrderSuccess(BuildContext context) {
     final shippingAddress = shippingAddressController.text;
     if (shippingAddress.isNotEmpty) {
-      if (cardDetailsValidated(context)) {
+      if (cardDetailsValidated(context) || paymentMethod == 'COD') {
         showDialog(
           context: context,
           barrierDismissible: false,
@@ -68,11 +68,11 @@ class _CheckoutPageState extends State<CheckoutPage> {
                 title: Text("PROGEAR"),
                 content: Column(
                   mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text("Order placed successfully."),
-                    const SizedBox(height: 5),
                     Text(
-                      "We will send you a confirmation email shortly. Thank you for shopping with PROGEAR",
+                      "Thank you for shopping with PROGEAR",
                     ),
                   ],
                 ),
@@ -80,6 +80,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   TextButton(
                     onPressed: () {
                       // Navigate to Home screen
+                      Navigator.pop(context);
                       Navigator.pop(context);
                       Navigator.pushReplacement(
                         context,
@@ -94,7 +95,9 @@ class _CheckoutPageState extends State<CheckoutPage> {
               ),
         );
       }
+      return;
     }
+    showErrorAlertDialog(context, 'Please enter a shipping address.');
   }
 
   @override
