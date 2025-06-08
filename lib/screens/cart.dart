@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:progear_app/data/customerCart.dart';
 import 'package:progear_app/models/cartProduct.dart';
+import 'package:progear_app/screens/checkout.dart';
 import 'package:progear_app/screens/shared/cartProductCard.dart';
 import 'package:progear_app/screens/shared/customHomeAppBar.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +22,10 @@ class _CartPageState extends State<CartPage> {
         final screenOrientation = MediaQuery.of(context).orientation;
 
         return Scaffold(
-          appBar: screenOrientation == Orientation.landscape ? null : CustomHomeAppBar(), //Hide the app bar in the landscape view
+          appBar:
+              screenOrientation == Orientation.landscape
+                  ? null
+                  : CustomHomeAppBar(), //Hide the app bar in the landscape view
           body: Column(
             children: [
               Expanded(
@@ -86,7 +90,14 @@ class _CartPageState extends State<CartPage> {
                       ),
                       const SizedBox(height: 5),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const CheckoutPage(),
+                            ),
+                          );
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.teal.shade700,
                         ),
