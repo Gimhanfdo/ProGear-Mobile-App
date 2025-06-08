@@ -1,11 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:progear_app/models/product.dart';
 import 'package:progear_app/data/allProducts.dart';
 import 'package:progear_app/screens/productDetails.dart';
-import 'package:progear_app/screens/products.dart';
-import 'package:progear_app/screens/profile.dart';
-import 'package:progear_app/screens/shared/button.dart';
 import 'package:progear_app/screens/shared/customHomeAppBar.dart';
 import 'package:progear_app/screens/shared/productCard.dart';
 
