@@ -50,7 +50,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
   //Decrease product quantity
   void decreaseQuantity() {
     setState(() {
-      if (quantityCount > 0){
+      if (quantityCount > 0) {
         quantityCount--;
       }
     });
@@ -59,15 +59,15 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
   //Increase product quantity
   void increaseQuantity() {
     setState(() {
-      if (quantityCount < widget.product.quantityAvailable){
+      if (quantityCount < widget.product.quantityAvailable) {
         quantityCount++;
       }
     });
   }
 
   //Add to Cart
-  void addToCart(){
-    if (quantityCount > 0){
+  void addToCart() {
+    if (quantityCount > 0) {
       //Get access to customer cart
       final customerCart = context.read<CustomerCart>();
 
@@ -77,19 +77,32 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
       //Display a success message
       showDialog(
         context: context,
-        barrierDismissible: false, //Prevents closing the dialog box when clicked outsides=
-        builder: (context)=> AlertDialog(
-          content: Text("Product added to cart"),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context); //To remove dialog box
-                Navigator.pop(context); //Return to prevous screen
-            }, 
-              child: Text('OK'),
-            )
-          ],
-        )
+        barrierDismissible:
+            false, //Prevents closing the dialog box when clicked outsides=
+        builder:
+            (context) => AlertDialog(
+              title: Text('PROGEAR'),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Added to cart successfully.", style: TextStyle(fontSize: 18)),
+                  const SizedBox(height: 20),
+                  Text("Product: ${widget.product.productName}"),
+                  const SizedBox(height: 10,),
+                  Text("Quantity: $quantityCount"),
+                ],
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context); //To remove dialog box
+                    Navigator.pop(context); //Return to prevous screen
+                  },
+                  child: Text('OK'),
+                ),
+              ],
+            ),
       );
     }
   }
@@ -210,7 +223,10 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.teal.shade600,
           ),
-          child: Text('Add to Cart', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+          child: Text(
+            'Add to Cart',
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
         ),
       ],
     );
