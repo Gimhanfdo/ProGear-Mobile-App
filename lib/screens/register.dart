@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:progear_app/screens/shared/button.dart';
+import 'package:progear_app/screens/shared/errorAlertDialog.dart';
 import 'package:progear_app/screens/shared/textField.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -17,80 +18,33 @@ class RegisterScreen extends StatelessWidget {
     final email = emailController.text;
     final password = passwordController.text;
 
+    //Empty field validation
     if (name.isEmpty || phoneNumber.isEmpty || email.isEmpty || password.isEmpty) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text("PROGEAR"),
-        content: Text("Empty fields founds. Please check and try again"),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text("OK"),
-          )
-        ],
-      ),
-    );
+      showErrorAlertDialog(context, 'Empty fields found. Please check and try again.');
     return false;
-  }
+    }
 
-  // Phone number validation
-  if (!RegExp(r'^\d{10}$').hasMatch(phoneNumber)) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text("PROGEAR"),
-        content: Text("Phone number should be 10 digits."),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text("OK"),
-          )
-        ],
-      ),
-    );
-    return false;
-  }
+    // Phone number validation
+    if (!RegExp(r'^\d{10}$').hasMatch(phoneNumber)) {
+        showErrorAlertDialog(context, 'Phone number should contain 10 digits.');
+      return false;
+    }
 
-  // Email validation
-  if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(email)) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text("PROGEAR"),
-        content: Text("Please enter a valid email address."),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text("OK"),
-          )
-        ],
-      ),
-    );
-    return false;
-  }
+    // Email validation
+    if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(email)) {
+      showErrorAlertDialog(context, 'Please enter a valid email address.');
+      return false;
+    }
 
-  // Password validation
-  if (password.length < 6 || !RegExp(r'[A-Z]').hasMatch(password) || !RegExp(r'\d').hasMatch(password) || !RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(password))  {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text("PROGEAR"),
-        content: Text("Password must be at least 6 characters long and consist of at least one uppercase, one digit and one special character."),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text("OK"),
-          )
-        ],
-      ),
-    );
-    return false;
-  }
+    // Password validation
+    if (password.length < 6 || !RegExp(r'[A-Z]').hasMatch(password) || !RegExp(r'\d').hasMatch(password) || !RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(password))  {
+      showErrorAlertDialog(context, 'Password must be atleast 6 characters long and contain atleast one uppercase, one digit and one special character.');
+      return false;
+    }
 
-  else{
-    return true;
-  }
+    else{
+      return true;
+    }
   }
 
   //Proceed to register if inputs are validated
