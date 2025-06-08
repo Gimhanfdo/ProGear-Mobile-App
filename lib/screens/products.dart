@@ -25,42 +25,45 @@ class _ProductsPageState extends State<ProductsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomHomeAppBar(),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Padding(
-          //   padding: const EdgeInsets.all(8.0),
-          //   child: Text(
-          //     "Browse Our Products",
-          //     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          //   ),
-          // ),
-          SizedBox(
-            height: 50,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              padding: EdgeInsets.symmetric(horizontal: 8.0),
-              itemCount: productCategories.length,
-              itemBuilder: (context, index) {
-                return _productCategory(
-                  index: index,
-                  categoryName: productCategories[index],
-                );
-              },
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Padding(
+            //   padding: const EdgeInsets.all(8.0),
+            //   child: Text(
+            //     "Browse Our Products",
+            //     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            //   ),
+            // ),
+            SizedBox(
+              height: 50,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                itemCount: productCategories.length,
+                itemBuilder: (context, index) {
+                  return _productCategory(
+                    index: index,
+                    categoryName: productCategories[index],
+                  );
+                },
+              ),
             ),
-          ),
-          const SizedBox(height: 10),
-          Expanded(
-            child:
-                isSelected == 0
-                    ? _displayProductsByCategory(Allproducts.cricketBats)
-                    : isSelected == 1
-                    ? _displayProductsByCategory(Allproducts.cricketBalls)
-                    : isSelected == 2
-                    ? _displayProductsByCategory(Allproducts.cricketHelmets)
-                    : _displayProductsByCategory(Allproducts.otherEquipment),
-          ),
-        ],
+            const SizedBox(height: 10),
+            Expanded(
+              child:
+                  isSelected == 0
+                      ? _displayProductsByCategory(Allproducts.cricketBats)
+                      : isSelected == 1
+                      ? _displayProductsByCategory(Allproducts.cricketBalls)
+                      : isSelected == 2
+                      ? _displayProductsByCategory(Allproducts.cricketHelmets)
+                      : _displayProductsByCategory(Allproducts.otherEquipment),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -75,8 +78,8 @@ class _ProductsPageState extends State<ProductsPage> {
         padding: EdgeInsets.all(5),
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: isSelected == index ? Colors.teal.shade600 : Colors.teal.shade300,
-          borderRadius: BorderRadius.circular(10),
+          color: isSelected == index ? Colors.teal.shade700 : Colors.teal.shade300,
+          borderRadius: BorderRadius.circular(15),
         ),
         child: Text(categoryName, style: TextStyle(color: Colors.white)),
       ),
