@@ -4,6 +4,7 @@ import 'package:progear_app/screens/home.dart';
 import 'package:progear_app/screens/navigationWrapper.dart';
 import 'package:progear_app/screens/register.dart';
 import 'package:progear_app/screens/shared/button.dart';
+import 'package:progear_app/screens/shared/errorAlertDialog.dart';
 import 'package:progear_app/screens/shared/textField.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -43,23 +44,7 @@ class LoginScreen extends StatelessWidget {
             ),
       );
     } else {
-      showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder:
-            (context) => AlertDialog(
-              title: Text("PROGEAR"),
-              content: Text("Incorrect Username or Password"),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text('OK'),
-                ),
-              ],
-            ),
-      );
+      showErrorAlertDialog(context, 'EIncorrect username or password.');
     }
   }
 
@@ -111,7 +96,7 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: 15),
 
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 80),
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Row(
                     children: [
                       Text(
