@@ -81,12 +81,12 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
         builder: (context)=> AlertDialog(
           content: Text("Product added to cart"),
           actions: [
-            IconButton(
+            TextButton(
               onPressed: () {
                 Navigator.pop(context); //To remove dialog box
                 Navigator.pop(context); //Return to prevous screen
             }, 
-              icon: Icon(Icons.done),
+              child: Text('OK'),
             )
           ],
         )
