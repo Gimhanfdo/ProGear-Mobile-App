@@ -1,7 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:progear_app/data/allProducts.dart';
 import 'package:progear_app/data/customerCart.dart';
 import 'package:progear_app/models/product.dart';
+import 'package:progear_app/screens/shared/productCard.dart';
 import 'package:provider/provider.dart';
 
 class ProductDetailsPage extends StatefulWidget {
@@ -86,10 +88,13 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Added to cart successfully.", style: TextStyle(fontSize: 18)),
+                  Text(
+                    "Added to cart successfully.",
+                    style: TextStyle(fontSize: 18),
+                  ),
                   const SizedBox(height: 20),
                   Text("Product: ${widget.product.productName}"),
-                  const SizedBox(height: 10,),
+                  const SizedBox(height: 10),
                   Text("Quantity: $quantityCount"),
                 ],
               ),
@@ -128,132 +133,205 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
       ),
     );
 
-    Widget productDetails = Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          widget.product.productName,
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
-        Row(
-          children: [
+    Widget productDetails = Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            widget.product.productName,
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 10),
+          Row(
+            children: [
+              Text(
+                'Brand: ${widget.product.productBrand} | ',
+                style: TextStyle(fontSize: 18),
+              ),
+              const SizedBox(width: 2),
+              stockAvailabilityStatus,
+            ],
+          ),
+          const SizedBox(height: 10),
+          if (isDiscounted) ...[
+            //Discounted price
             Text(
-              'Brand: ${widget.product.productBrand} | ',
-              style: TextStyle(fontSize: 18),
+              'Rs. ${widget.product.price.toStringAsFixed(2)}',
+              style: TextStyle(
+                fontSize: 20,
+                color: theme.colorScheme.onSurface.withAlpha(
+                  153,
+                ), // 60% opacity
+                decoration: TextDecoration.lineThrough,
+              ),
             ),
-            const SizedBox(width: 2),
-            stockAvailabilityStatus,
-          ],
-        ),
-        const SizedBox(height: 10),
-        if (isDiscounted) ...[
-          //Discounted price
-          Text(
-            'Rs. ${widget.product.price.toStringAsFixed(2)}',
-            style: TextStyle(
-              fontSize: 20,
-              color: theme.colorScheme.onSurface.withAlpha(153), // 60% opacity
-              decoration: TextDecoration.lineThrough,
-            ),
-          ),
 
-          Text(
-            'Rs. ${discountedPrice!.toStringAsFixed(2)}',
-            style: TextStyle(
-              color: Colors.red,
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
+            Text(
+              'Rs. ${discountedPrice!.toStringAsFixed(2)}',
+              style: TextStyle(
+                color: Colors.red,
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
             ),
+          ] else ...[
+            Text(
+              'Rs. ${widget.product.price.toStringAsFixed(2)}',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: theme.colorScheme.onSurfaceVariant,
+              ),
+            ),
+          ],
+          const SizedBox(height: 10),
+          Row(
+            children: [
+              Container(
+                height: 40,
+                width: 40,
+                decoration: BoxDecoration(
+                  color: Colors.teal.shade300,
+                  shape: BoxShape.circle,
+                ),
+                child: IconButton(
+                  icon: Icon(Icons.remove, color: Colors.white),
+                  onPressed: decreaseQuantity,
+                ),
+              ),
+              const SizedBox(width: 10),
+              SizedBox(
+                width: 40,
+                child: Center(
+                  child: Text(
+                    quantityCount.toString(),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 10),
+              Container(
+                height: 40,
+                width: 40,
+                decoration: BoxDecoration(
+                  color: Colors.teal.shade300,
+                  shape: BoxShape.circle,
+                ),
+                child: IconButton(
+                  icon: Icon(Icons.add, color: Colors.white),
+                  onPressed: increaseQuantity,
+                ),
+              ),
+            ],
           ),
-        ] else ...[
-          Text(
-            'Rs. ${widget.product.price.toStringAsFixed(2)}',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-              color: theme.colorScheme.onSurfaceVariant,
+          const SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
+              addToCart();
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor:
+                  Theme.of(context).colorScheme.onPrimaryFixedVariant,
+            ),
+            child: Text(
+              'Add to Cart',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
             ),
           ),
         ],
-        const SizedBox(height: 10),
-        Row(
-          children: [
-            Container(
-              height: 40,
-              width: 40,
-              decoration: BoxDecoration(
-                color: Colors.teal.shade300,
-                shape: BoxShape.circle,
-              ),
-              child: IconButton(
-                icon: Icon(Icons.remove, color: Colors.white),
-                onPressed: decreaseQuantity,
-              ),
-            ),
-            const SizedBox(width: 10),
-            SizedBox(
-              width: 40,
-              child: Center(
-                child: Text(
-                  quantityCount.toString(),
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                ),
-              ),
-            ),
-            const SizedBox(width: 10),
-            Container(
-              height: 40,
-              width: 40,
-              decoration: BoxDecoration(
-                color: Colors.teal.shade300,
-                shape: BoxShape.circle,
-              ),
-              child: IconButton(
-                icon: Icon(Icons.add, color: Colors.white),
-                onPressed: increaseQuantity,
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 20),
-        ElevatedButton(
-          onPressed: () {
-            addToCart();
-          },
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.teal.shade600,
-          ),
-          child: Text(
-            'Add to Cart',
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-        ),
-      ],
+      ),
     );
 
-    Widget productDescription = Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Description',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 5),
-        Text(
-          widget.product.description,
-          style: TextStyle(
-            fontSize: 16,
-            color: theme.colorScheme.onSurfaceVariant,
+    Widget productDescription = Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Description',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
-        ),
-        Divider(color: theme.colorScheme.inversePrimary, thickness: 1),
-      ],
+          const SizedBox(height: 10),
+          Text(
+            widget.product.description,
+            style: TextStyle(
+              fontSize: 16,
+              color: theme.colorScheme.onSurfaceVariant,
+            ),
+          ),
+          const SizedBox(height: 5),
+          Divider(color: theme.colorScheme.inversePrimary, thickness: 1),
+        ],
+      ),
     );
+
+    final relatedProducts = Allproducts.getProductsByCategory(
+      widget.product.category,
+    );
+
+    Widget displayRelatedProducts(List<Product> productList) {
+      final screenOrientation = MediaQuery.of(context).orientation;
+      final crossAxisCount = screenOrientation == Orientation.landscape ? 3 : 2;
+      final childAspectRatio =
+          screenOrientation == Orientation.landscape
+              ? (100 / 110)
+              : (100 / 140);
+
+      return GridView.builder(
+        physics: NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: crossAxisCount,
+          childAspectRatio: childAspectRatio,
+          crossAxisSpacing: 12,
+          mainAxisSpacing: 12,
+        ),
+        scrollDirection: Axis.vertical,
+        itemCount: productList.length,
+        itemBuilder: (context, index) {
+          final productListItem = productList[index];
+          return InkWell(
+            splashColor: Colors.tealAccent.withOpacity(0.3),
+            highlightColor: Colors.transparent,
+            child: ProductCard(product: productListItem),
+            onTap: () {
+              final selectedProduct = productList[index];
+              if (selectedProduct != widget.product) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) =>
+                            ProductDetailsPage(product: selectedProduct),
+                  ),
+                );
+              }
+            },
+          );
+        },
+      );
+    }
 
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         title: Text(widget.product.productName),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          addToCart();
+        },
+        child: Icon(Icons.add_shopping_cart),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -277,6 +355,19 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     ),
                     const SizedBox(height: 20),
                     productDescription,
+                    const SizedBox(height: 20),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Related Products',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    displayRelatedProducts(relatedProducts),
                   ],
                 )
                 : Column(
@@ -288,6 +379,18 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     const SizedBox(height: 20),
                     productDescription,
                     const SizedBox(height: 10),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Related Products',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    displayRelatedProducts(relatedProducts),
                   ],
                 ),
       ),
