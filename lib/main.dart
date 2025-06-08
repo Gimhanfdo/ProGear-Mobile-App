@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:progear_app/data/customerCart.dart';
 import 'package:progear_app/screens/home.dart';
+import 'package:progear_app/screens/login.dart';
+import 'package:progear_app/screens/navigationWrapper.dart';
+import 'package:progear_app/screens/register.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => CustomerCart(),
+    child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -12,14 +21,27 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'ProGear',
       debugShowCheckedModeBanner: false, //Remove the debug label at the top
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        fontFamily: 'Nunito',
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.teal,
+          brightness: Brightness.light,
+        ),
       ),
-      home: const Home(),
+      darkTheme: ThemeData(
+        useMaterial3: true,
+        fontFamily: 'Nunito',
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.teal,
+          brightness: Brightness.dark,
+        ),
+      ),
+
+      themeMode: ThemeMode.system,
+      home: LoginScreen(),
     );
   }
 }
-
