@@ -55,7 +55,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: const Text('Change Profile Picture'),
+                      child: const Text('Change Profile Picture', style: TextStyle(fontSize: 16),),
                     ),
                   ],
                 ),
@@ -74,7 +74,9 @@ class _ProfilePageState extends State<ProfilePage> {
               const SizedBox(height: 20),
 
               profileRow('Name', loggedInUser.name),
+              const SizedBox(height: 5,),
               profileRow('Contact Number', loggedInUser.phoneNumber),
+              const SizedBox(height: 5,),
               profileRow('Email', loggedInUser.email),
 
               const SizedBox(height: 40),
