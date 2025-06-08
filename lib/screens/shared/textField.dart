@@ -5,6 +5,7 @@ class CustomTextField extends StatelessWidget {
   final textController;
   final String hintText;
   final bool obscureText;
+  final VoidCallback? onTap;
 
   const CustomTextField({
     super.key,
@@ -12,33 +13,38 @@ class CustomTextField extends StatelessWidget {
     required this.textController,
     required this.hintText,
     required this.obscureText,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 80),
+      padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(labelText),
 
-          const SizedBox(height: 5),
+          const SizedBox(height: 10),
 
           TextField(
             controller: textController,
             obscureText: obscureText,
+            readOnly: onTap != null,
             decoration: InputDecoration(
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
+                borderSide: BorderSide(color: Theme.of(context).colorScheme.onPrimary),
+                borderRadius: BorderRadius.circular(8),
               ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey.shade400),
+                borderSide: BorderSide(color: Theme.of(context).colorScheme.onPrimaryContainer),
+                borderRadius: BorderRadius.circular(8),
               ),
               filled: true,
               hintText: hintText,
               hintStyle: TextStyle(fontSize: 14),
             ),
+            onTap: onTap,
           ),
         ],
       ),
