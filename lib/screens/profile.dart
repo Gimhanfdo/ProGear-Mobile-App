@@ -4,6 +4,7 @@ import 'package:progear_app/screens/shared/button.dart';
 import 'package:progear_app/screens/shared/customHomeAppBar.dart';
 
 class ProfilePage extends StatefulWidget {
+  // ignore: prefer_const_constructors_in_immutables
   ProfilePage({super.key});
 
   @override

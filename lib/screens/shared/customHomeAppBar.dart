@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 // Implements a PreferredSizeWidget so that it can be used as an app bar

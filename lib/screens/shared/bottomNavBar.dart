@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, deprecated_member_use
+
 import 'package:flutter/material.dart';
 
 class BottomNavBar extends StatelessWidget {
@@ -42,7 +44,7 @@ class BottomNavBar extends StatelessWidget {
           selectedIcon: Icon(Icons.shopping_cart),
           label: 'My Cart',
         ),
-        
+
         NavigationDestination(
           icon: Icon(Icons.person_outlined),
           selectedIcon: Icon(Icons.person),
