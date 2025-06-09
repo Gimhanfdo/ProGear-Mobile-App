@@ -699,7 +699,7 @@ class Allproducts {
       category: "Other",
       price: 19000,
       productImage:
-          "https://otagosportsdepot.co.nz/cdn/shop/files/unproductNamed---2024-09-18T135614-452_800x.jpg?v=1726624819",
+          "https://www.cricketshopitaly.com/cdn/shop/files/GunnAndMooreDiamondDuffleBagBlack_1_600x.jpg?v=1747401958",
       description:
           "Compact and functional duffle bag with ample space for essential cricket gear, easy to carry.",
       discountPercentage: null,
