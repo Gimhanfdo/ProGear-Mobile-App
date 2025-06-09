@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:progear_app/screens/login.dart';
 
 class User {
-  final int _userID;
+  final int _userID; //userID can't be changed
   String _name;
   String _phoneNumber;
-  final String _email;
+  final String _email; //email can't be changed
   String _password;
 
   //Constructor
@@ -42,10 +42,11 @@ class LoggedInUser extends User {
         password: 'John_Smith@2000',
       );
 
+  //Method for logout functionality (show alert dialog and navigate to the login page)
   static void logOut(BuildContext context) {
     showDialog(
       context: context,
-      barrierDismissible: false,
+      barrierDismissible: false, // Prevent dismissing by tapping outside dialog
       builder:
           (context) => AlertDialog(
             title: Text('PROGEAR'),
@@ -53,14 +54,14 @@ class LoggedInUser extends User {
             actions: [
               TextButton(
                 onPressed: () {
-                  // Navigate to Login screen
+                  // Close dialog if the user clicks 'Cancel'
                   Navigator.pop(context);
                 },
                 child: Text('Cancel'),
               ),
               TextButton(
                 onPressed: () {
-                  // Navigate to Login screen
+                  // Close dialog and navigate to Login screen if the user clicks on 'Log out'
                   Navigator.pop(context);
                   Navigator.pushReplacement(
                     context,
