@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:progear_app/data/allProducts.dart';
 import 'package:progear_app/data/customerCart.dart';
 import 'package:progear_app/models/product.dart';
+import 'package:progear_app/screens/cart.dart';
+import 'package:progear_app/screens/shared/errorAlertDialog.dart';
 import 'package:progear_app/screens/shared/productCard.dart';
 import 'package:provider/provider.dart';
 
@@ -109,6 +111,12 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
               ],
             ),
       );
+    }
+    else if (quantityCount == 0){
+      showErrorAlertDialog(context, 'Select the quantity');
+    }
+    else if (isProductOutofStock){
+      showErrorAlertDialog(context, 'The product is out of stock');
     }
   }
 
@@ -329,9 +337,12 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          addToCart();
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => CartPage()),
+          );
         },
-        child: Icon(Icons.add_shopping_cart),
+        child: Icon(Icons.shopping_cart),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
