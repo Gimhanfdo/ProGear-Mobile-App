@@ -56,7 +56,7 @@ class RegisterScreen extends StatelessWidget {
         builder:
             (context) => AlertDialog(
               title: Text('PROGEAR'),
-              content: Text("Registrtion successful"),
+              content: Text("Registration successful"),
               actions: [
                 TextButton(
                   onPressed: () {
