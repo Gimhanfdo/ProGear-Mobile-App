@@ -16,9 +16,10 @@ class CartPage extends StatefulWidget {
 class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
+    //Used to listen for changes in the CustomerCart provider
     return Consumer<CustomerCart>(
       builder: (context, cart, child) {
-        final List<CartProduct> cartItems = cart.getCart.values.toList();
+        final List<CartProduct> cartItems = cart.getCart.values.toList(); //Get all cart items to a list
         final screenOrientation = MediaQuery.of(context).orientation;
 
         return Scaffold(
@@ -27,7 +28,7 @@ class _CartPageState extends State<CartPage> {
                   ? null
                   : CustomHomeAppBar(), //Hide the app bar in the landscape view
           body:
-              cartItems.isEmpty
+              cartItems.isEmpty //Shows empty cart text with an icon if the cart is empty
                   ? Center(
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
@@ -41,7 +42,7 @@ class _CartPageState extends State<CartPage> {
                           ),
                           SizedBox(height: 16),
                           Text(
-                            'Your cart is empty',
+                            'Your cart is empty', 
                             style: TextStyle(
                               fontSize: 20,
                             ),
@@ -50,19 +51,19 @@ class _CartPageState extends State<CartPage> {
                       ),
                     ),
                   )
-                  : Column(
+                  : Column( //If not show a column
                     children: [
                       Expanded(
                         child: ListView.builder(
                           itemCount: cartItems.length,
-                          itemBuilder: (context, index) {
-                            return CartProductCard(
+                          itemBuilder: (context, index) { 
+                            return CartProductCard( //Return a product card for each item in the cart
                               cartProduct: cartItems[index],
                             );
                           },
                         ),
                       ),
-                      if (cartItems.isNotEmpty)
+                      if (cartItems.isNotEmpty) //Display cart total section if the cart is not empty
                         Container(
                           padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
                           child: Column(
@@ -82,7 +83,9 @@ class _CartPageState extends State<CartPage> {
                                   ),
                                 ],
                               ),
+                              
                               const SizedBox(height: 5),
+
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -97,7 +100,9 @@ class _CartPageState extends State<CartPage> {
                                   ),
                                 ],
                               ),
+
                               const SizedBox(height: 5),
+
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -120,8 +125,11 @@ class _CartPageState extends State<CartPage> {
                                   ),
                                 ],
                               ),
+
                               const SizedBox(height: 5),
-                              ElevatedButton(
+
+                              //Checkout button to navigate to the checkout page
+                              ElevatedButton( 
                                 onPressed: () {
                                   Navigator.push(
                                     context,

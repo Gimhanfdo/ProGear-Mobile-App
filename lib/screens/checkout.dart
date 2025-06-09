@@ -16,15 +16,17 @@ class CheckoutPage extends StatefulWidget {
 }
 
 class _CheckoutPageState extends State<CheckoutPage> {
+  //Controllers and keys for form and input fields
   final formKey = GlobalKey<FormState>();
   final shippingAddressController = TextEditingController();
   final creditCardNumberController = TextEditingController();
   final expiryDateController = TextEditingController();
   final cvvController = TextEditingController();
 
-  String paymentMethod = 'COD';
-  String cardType = 'Mastercard';
+  String paymentMethod = 'COD'; //Default payment method
+  String cardType = 'Mastercard'; //Default card type
 
+  //Function to validate card details
   bool cardDetailsValidated(BuildContext context) {
     final creditCardNumber = creditCardNumberController.text;
     final expiryDate = expiryDateController.text;
@@ -56,9 +58,12 @@ class _CheckoutPageState extends State<CheckoutPage> {
     return true;
   }
 
+  //Function to show success alert dialog 
   void displayOrderSuccess(BuildContext context) {
     final shippingAddress = shippingAddressController.text;
+    //Checks if shipping address is not empty
     if (shippingAddress.isNotEmpty) {
+      //If card details are validated or payment method is cash
       if (cardDetailsValidated(context) || paymentMethod == 'COD') {
         showDialog(
           context: context,
@@ -80,8 +85,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   TextButton(
                     onPressed: () {
                       // Navigate to Home screen
-                      Navigator.pop(context);
-                      Navigator.pop(context);
+                      Navigator.pop(context); //Close Dialog
+                      Navigator.pop(context); //Close Checkout page
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
@@ -105,6 +110,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
     final theme = Theme.of(context);
     final screenOrientation = MediaQuery.of(context).orientation;
 
+    //Reusable section title widget
     Widget sectionTitle(String title, ThemeData theme) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -120,10 +126,13 @@ class _CheckoutPageState extends State<CheckoutPage> {
       );
     }
 
+    // Use the Consumer widget to listen to changes in the CustomerCart provider
     return Consumer<CustomerCart>(
       builder: (context, cart, child) {
+        // Extract the CartProduct objects from the cart map and convert to a list
         final List<CartProduct> cartItems = cart.getCart.values.toList();
 
+        //Form
         Widget checkoutForm = Form(
           key: formKey,
           child: Column(
@@ -167,7 +176,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   Text('Card Payment'),
                 ],
               ),
-              if (paymentMethod == 'Card') ...[
+              if (paymentMethod == 'Card') ...[ //Display card details section if the payment method is card
                 Text(
                   'Please enter your card details',
                   style: TextStyle(fontSize: 18),
@@ -211,14 +220,14 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   hintText: 'mm/dd/yyyy',
                   obscureText: false,
                   onTap: () async {
-                    final expiryDate = await showDatePicker(
+                    final expiryDate = await showDatePicker( //when the text box is clicked
                       context: context,
                       initialDate: DateTime.now(),
                       firstDate: DateTime.now(),
                       lastDate: DateTime(2100, 12, 31),
                     );
                     if (expiryDate != null) {
-                      expiryDateController.text = DateFormat(
+                      expiryDateController.text = DateFormat( //Display the date as text in the given format
                         'MM/yy',
                       ).format(expiryDate);
                     }
@@ -237,6 +246,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
           ),
         );
 
+        //Column widget to display order summary
         Widget orderSummary = Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -328,7 +338,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
             padding: const EdgeInsets.all(8.0),
             child:
                 screenOrientation == Orientation.landscape
-                    ? Row(
+                    ? Row( //Display checkout form on the left and order summary on the right
                       children: [
                         Expanded(
                           child: SingleChildScrollView(child: checkoutForm),
@@ -339,7 +349,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                         ),
                       ],
                     )
-                    : ListView(
+                    : ListView( //Display one below the other in portrait view
                       children: [
                         checkoutForm,
                         const SizedBox(height: 10),

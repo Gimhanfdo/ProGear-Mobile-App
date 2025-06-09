@@ -23,12 +23,12 @@ class ProductCard extends StatelessWidget {
         isDiscounted ? calculateDiscountedPrice(product) : null;
 
     return Container(
-      width: MediaQuery.of(context).size.width / 2,
+      width: MediaQuery.of(context).size.width / 2, //Takes half of the screen width
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         color: theme.colorScheme.surface,
       ),
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8.0), 
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -40,10 +40,10 @@ class ProductCard extends StatelessWidget {
               //For image optimization
               imageUrl: product.productImage,
               fit: BoxFit.cover,
-              placeholder:
+              placeholder: //Loading spinner
                   (context, url) =>
                       const Center(child: CircularProgressIndicator()),
-              errorWidget:
+              errorWidget: //Error image
                   (context, url, error) => const Icon(Icons.broken_image),
             ),
           ),
@@ -53,7 +53,7 @@ class ProductCard extends StatelessWidget {
           Text(
             product.productName,
             maxLines: 1, 
-            overflow: TextOverflow.ellipsis,
+            overflow: TextOverflow.ellipsis, //Adds ... to the end of the product name if necessary
             style: theme.textTheme.titleMedium?.copyWith(
               fontWeight: FontWeight.bold,
               color: theme.colorScheme.onSurface,

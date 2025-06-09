@@ -41,6 +41,7 @@ class _HomeState extends State<Home> {
 
               SearchAnchor.bar(
                 barHintText: 'What are you looking for?',
+                
                 suggestionsBuilder: (context, controller) {
                   return const []; 
                 },
@@ -104,37 +105,38 @@ class _HomeState extends State<Home> {
     );
   }
 
+  // Widget to display discounted products in a responsive grid
   Widget _displayDiscountedProducts() {
     final screenOrientation = MediaQuery.of(context).orientation;
-    final crossAxisCount = screenOrientation == Orientation.landscape ? 3 : 2;
+    final crossAxisCount = screenOrientation == Orientation.landscape ? 3 : 2; //3 columns in landscape and 2 in portrait
     final childAspectRatio =
-        screenOrientation == Orientation.landscape ? (100 / 110) : (100 / 140);
+        screenOrientation == Orientation.landscape ? (100 / 110) : (100 / 140); //change aspect ratio
 
     return GridView.builder(
-      physics: NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(), //Disable grid's own scrolling
+      shrinkWrap: true, //Takes only the needed height
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: crossAxisCount,
         childAspectRatio: childAspectRatio,
-        crossAxisSpacing: 12,
-        mainAxisSpacing: 12,
+        crossAxisSpacing: 12, //horizontal spacing
+        mainAxisSpacing: 12, //vertical spacing
       ),
       scrollDirection: Axis.vertical,
       itemCount: Allproducts.discountedProducts.length,
       itemBuilder: (context, index) {
         final discountedProduct = Allproducts.discountedProducts[index];
         return GestureDetector(
-          child: ProductCard(product: discountedProduct),
+          child: ProductCard(product: discountedProduct), // Display a product card for each item in the list
           onTap: () {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
-                    (context) => ProductDetailsPage(
+                    (context) => ProductDetailsPage( // Navigate to product details page when clicked
                       product: Allproducts.discountedProducts[index],
                     ),
               ),
-            ); //Material Page Route
+            ); 
           },
         );
       },
