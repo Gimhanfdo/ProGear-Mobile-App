@@ -113,7 +113,7 @@ class _ProductsPageState extends State<ProductsPage> {
                     (context) =>
                         ProductDetailsPage(product: productList[index]),
               ),
-            ); //Material Page Route
+            ); 
           },
         );
       },
