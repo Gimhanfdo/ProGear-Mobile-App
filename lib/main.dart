@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:progear_app/data/customerCart.dart';
-import 'package:progear_app/screens/home.dart';
 import 'package:progear_app/screens/login.dart';
-import 'package:progear_app/screens/navigationWrapper.dart';
-import 'package:progear_app/screens/register.dart';
 import 'package:provider/provider.dart';
 
 void main() {

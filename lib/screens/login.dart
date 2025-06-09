@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:progear_app/models/user.dart';
-import 'package:progear_app/screens/home.dart';
 import 'package:progear_app/screens/navigationWrapper.dart';
 import 'package:progear_app/screens/register.dart';
 import 'package:progear_app/screens/shared/button.dart';
@@ -44,7 +43,7 @@ class LoginScreen extends StatelessWidget {
             ),
       );
     } else {
-      showErrorAlertDialog(context, 'EIncorrect username or password.');
+      showErrorAlertDialog(context, 'Incorrect username or password.');
     }
   }
 
