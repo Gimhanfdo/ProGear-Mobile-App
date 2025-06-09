@@ -72,8 +72,8 @@ class _ProductsPageState extends State<ProductsPage> {
     return GestureDetector(
       onTap: () => setState(() => isSelected = index),
       child: Container(
-        width: 100,
-        height: 50,
+        width: 140,
+        height: 60,
         margin: EdgeInsets.only(top: 10, right: 10),
         padding: EdgeInsets.all(5),
         alignment: Alignment.center,
